@@ -5,8 +5,8 @@ import com.google.common.collect.Lists;
 import com.ruanyangyang.demo.common.annotation.OperationLog;
 import com.ruanyangyang.demo.common.util.TimeUtil;
 import com.ruanyangyang.demo.controller.BaseController;
-import com.ruanyangyang.demo.entity.pojo.OperateLog;
-import com.ruanyangyang.demo.service.OperateLogService;
+import com.ruanyangyang.demo.entity.pojo.SysOperateLog;
+import com.ruanyangyang.demo.service.SysOperateLogService;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -28,7 +28,7 @@ import java.util.List;
 public class OperationLogAspect extends BaseController {
 
     @Autowired
-    private OperateLogService operateLogService;
+    private SysOperateLogService sysOperateLogService;
 
     @Pointcut(value = "@annotation(com.ruanyangyang.demo.common.annotation.OperationLog)")
     public void operationLog() {
@@ -53,7 +53,7 @@ public class OperationLogAspect extends BaseController {
         if (request == null) {
             return;
         }
-        long userId = -1L;
+        Integer userId = -1;
         try {
             userId = getCurrentUserId();
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public class OperationLogAspect extends BaseController {
                 params.add(object);
             }
         }
-        OperateLog operateLog = new OperateLog();
+        SysOperateLog operateLog = new SysOperateLog();
         operateLog.setModule(op[1]);
         if (op[1].contains("上传")) {
             operateLog.setOperateDetail(op[0]);
@@ -92,7 +92,7 @@ public class OperationLogAspect extends BaseController {
         operateLog.setCreateTime(TimeUtil.getUnixTime());
 
         log.info("切面打印的操作日志：" + operateLog.toString());
-        operateLogService.save(operateLog);
+        sysOperateLogService.save(operateLog);
     }
 
     /**

@@ -18,8 +18,8 @@ public class CodeGeneration {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         // 输出文件路径
-//        gc.setOutputDir("E:\\java\\code\\demo-springboot\\src\\main\\java");        // 输出文件路径
-        gc.setOutputDir("C:\\Users\\ryan\\Desktop\\temp");                          // 输出文件路径
+        gc.setOutputDir("E:\\java\\code\\demo-springboot\\src\\main\\java");        // 输出文件路径
+//        gc.setOutputDir("C:\\Users\\ryan\\Desktop\\temp");                          // 输出文件路径
         gc.setFileOverride(true);
         gc.setActiveRecord(false);                                                  // 不需要ActiveRecord特性的请改为false
         gc.setEnableCache(false);                                                   // XML 二级缓存

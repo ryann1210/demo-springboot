@@ -38,16 +38,16 @@ public class BaseController {
      *
      * @return 用户id
      */
-    protected Long getCurrentUserId() {
+    protected Integer getCurrentUserId() {
         HttpServletRequest request = getCurrentHttpServletRequest();
 
         try {
             Object userId = request.getAttribute("userId");
-            return Long.parseLong(String.valueOf(userId));
+            return Integer.parseInt(String.valueOf(userId));
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        return -1L;
+        return -1;
     }
 
     /**
