@@ -1,11 +1,24 @@
 package com.ruanyangyang.demo.entity;
 
 public enum ResultCode implements IResultCode {
+    /**
+     * 101** 通用异常
+     */
+    ERR(10100, "系统繁忙"),
+    ERR_NO_AUTHENTICATION(10101, "登陆已过期,请重新登陆"),
+    ERR_NO_AUTHORIZATION(10102, "权限不足"),
 
-    OK(200, "请求成功"),
-    NO_AUTH(401, "没有权限"),
-    ERROR(500, "系统繁忙");
+    /**
+     * 102** 用户异常
+     */
+    ERR_WRONG_ACCOUNT(10201, "账户名错误"),
+    ERR_WRONG_PASSWORD(10201, "密码错误"),
+    ERR_LOCKED_USER(10201, "用户已锁定"),
 
+    /**
+     * 10000 成功返回
+     */
+    OK(10000, "请求成功");
 
 
     private final long code;

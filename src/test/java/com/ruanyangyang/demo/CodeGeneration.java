@@ -20,11 +20,11 @@ public class CodeGeneration {
         // 输出文件路径
         gc.setOutputDir("E:\\java\\code\\demo-springboot\\src\\main\\java");        // 输出文件路径
 //        gc.setOutputDir("C:\\Users\\ryan\\Desktop\\temp");                          // 输出文件路径
-        gc.setFileOverride(true);
-        gc.setActiveRecord(false);                                                  // 不需要ActiveRecord特性的请改为false
+        gc.setFileOverride(true);                                                   // 是否覆盖
+        gc.setActiveRecord(false);                                                  // 如不需要ActiveRecord特性 改为false
         gc.setEnableCache(false);                                                   // XML 二级缓存
         gc.setBaseResultMap(true);                                                  // XML ResultMap
-        gc.setBaseColumnList(false);                                                // XML columList
+        gc.setBaseColumnList(false);                                                // XML columnList
         gc.setAuthor("ryan");                                                       // 作者
 
         gc.setControllerName("%sController");

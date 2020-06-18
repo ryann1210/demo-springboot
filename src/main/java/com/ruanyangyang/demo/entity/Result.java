@@ -18,7 +18,7 @@ public class Result<T> {
     private long code;
 
     @ApiModelProperty("描述")
-    private String message;
+    private String msg;
 
     @ApiModelProperty("结果集")
     private T data;
@@ -42,7 +42,7 @@ public class Result<T> {
     private static <T> Result<T> restResult(long code, String msg, T data) {
         Result<T> apiResult = new Result<>();
         apiResult.setCode(code);
-        apiResult.setMessage(msg);
+        apiResult.setMsg(msg);
         apiResult.setData(data);
         return apiResult;
     }
